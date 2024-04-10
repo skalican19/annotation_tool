@@ -78,34 +78,26 @@ lsc = None
 
 get_curr_image()
 
-# Create a window to display the image
 cv2.namedWindow('Image')
-# Create a window to display the mask
 cv2.namedWindow('Mask')
-# Create a window to display the final grabcut mask
 cv2.namedWindow('GrabCut Mask')
 
-# Set mouse callback function
 cv2.setMouseCallback('Image', mouse_callback)
-# Main loop
 while True:
     if 255 in mask:
         gc_mask = grab_cut(image.copy(), cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY))
     else:
         gc_mask = mask
-    # Display the image
+
     cv2.imshow('Image', image_with_boundaries)
     cv2.imshow('Mask', mask)
     cv2.imshow('GrabCut Mask', gc_mask)
 
-    # Check for key press
     key = cv2.waitKey(1) & 0xFF
 
-    # Exit if 'q' is pressed
     if key == ord('q'):
         break
 
-    # Update settings based on user input
     if key == ord('1'):
         settings['action'] = 'sure_fg'
         print('selecting sure foreground')
@@ -135,5 +127,4 @@ while True:
             break
         get_curr_image()
 
-# Close all windows
 cv2.destroyAllWindows()

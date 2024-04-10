@@ -153,7 +153,7 @@ cv2.calcOpticalFlowPyrLK(
     prevPts=features to track,
 )
 ```
-**Result**
+**Result**<br>
 ![sparse](images/sparse.gif)<br>
 
 ### Dense optical flow
@@ -180,7 +180,7 @@ cv.calcOpticalFlowFarneback(
 )
 ```
 
-**Result**
+**Result**<br>
 ![dense](images/dense.gif)<br>
 
 
